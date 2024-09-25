@@ -1,7 +1,7 @@
 import os
 import csv
 
-budget_data_csv= os.path.join('..', 'resources', 'budget_data.csv')
+budget_data_csv= os.path.join('Resources', 'budget_data.csv')
 
 #print(budget_data_csv)
 
@@ -42,7 +42,9 @@ with open(budget_data_csv, newline="") as csv_file:
 
 average_change = average_total / (row_count - 1) # the average change is the average total divided by the row count - 1 (there is no change for the first row)
 
+
 analysis_txt = os.path.join('..', 'analysis', 'pybank.txt')
+
 
 with open(analysis_txt, "a") as f:
 
@@ -53,3 +55,13 @@ with open(analysis_txt, "a") as f:
     print("Average Change: $" + str(round(average_change, 2)), file = f)
     print("Greatest Increase in Profits: " + month_greatest + " $" + str(greatest), file = f)
     print("Greatest Decrease in Profits: " + month_least + " $" + str(least), file = f)
+
+
+# Added code to have results print out in the terminal
+print("Financial Analysis") 
+print("-----------------------------------")       
+print("Total Months: " + str(row_count))
+print("Total: $" + str(total))
+print("Average Change: $" + str(round(average_change, 2)))
+print("Greatest Increase in Profits: " + month_greatest + " $" + str(greatest))
+print("Greatest Decrease in Profits: " + month_least + " $" + str(least))

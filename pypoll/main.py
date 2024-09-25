@@ -1,7 +1,7 @@
 import os
 import csv
 
-election_data_csv= os.path.join('..', 'resources', 'election_data.csv')
+election_data_csv= os.path.join('Resources', 'election_data.csv')
 
 with open(election_data_csv, newline="") as csv_file:
     csvreader = csv.reader(csv_file, delimiter=",")
@@ -40,6 +40,7 @@ else:
 
 analysis_txt = os.path.join('..', 'analysis', 'pypoll.txt')
 
+
 with open(analysis_txt, "a") as f:
     print("Election Results", file=f)
     print("------------------------------", file=f)
@@ -51,3 +52,14 @@ with open(analysis_txt, "a") as f:
     print("------------------------------", file = f)
     print("Winner: " + winner, file = f)
 
+
+# Added code to have results print out in the terminal
+print("Election Results")
+print("------------------------------")
+print("Total Votes: " + str(total_votes))
+print("------------------------------")
+print("Charles Casper Stockham: " + str(round(charles_percent, 3)) + "% " + "("+str(charles_count)+")")
+print("Diana DeGette: " + str(round(diana_percent, 3)) + "% " + "("+str(diana_count)+")")
+print("Raymon Anthony Doane: " + str(round(raymon_percent, 3)) + "% " + "("+str(raymon_count)+")")
+print("------------------------------")
+print("Winner: " + winner)
